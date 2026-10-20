@@ -1,0 +1,19 @@
+digraph PSCL {
+  graph [rankdir=TB, fontname="Helvetica", nodesep=0.15, ranksep=0.22, splines=spline, pad=0.05, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=9, color="#52514e", fillcolor="#f4f4f2", penwidth=0.8, margin="0.07,0.04", width=1.6];
+  edge  [color="#52514e", arrowsize=0.6, penwidth=0.8];
+  obs  [label="Observed state (degraded)\nspeed, position (stale, noisy),\nsignal, authority, occupancy,\npoint detection, weather,\ncomm delay, reliability"];
+  twin [label="Graph digital twin\nroute table -> track distance\nto conflict point", fillcolor="#e3eefb"];
+  phys [label="Nominal braking model\n(ETCS-style)\nD_svc, D_emg, margin, TTC, DRCRI", fillcolor="#e3eefb"];
+  ml   [label="ML severity model (HGB)\np(k | x), k = 0..3", fillcolor="#e3eefb"];
+  cp   [label="Mondrian conformal\nescalation: max C(x)\nP(dec >= Y | Y=k) >= 1-a_k", fillcolor="#fde3d8"];
+  sh   [label="Physics shield\nconservative envelope:\nmu_lo, K_lo, staleness,\nk-sigma speed & position,\nany-source conflict", fillcolor="#fde3d8"];
+  fuse [label="Decision = max(conformal, shield)", fillcolor="#fde3d8"];
+  act  [label="Graded intervention\nadvisory | service | emergency | stop-all"];
+  log  [label="Event log ->\noffline recalibration"];
+  obs -> twin -> phys -> ml -> cp -> fuse;
+  twin -> sh -> fuse;
+  fuse -> act -> log;
+  log -> cp [style=dashed, constraint=false];
+  {rank=same; ml; sh;}
+}

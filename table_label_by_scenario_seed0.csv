@@ -1,0 +1,13 @@
+scenario,0,1,2,3
+data_fault,855,80,55,190
+degraded_authority,1121,61,56,171
+head_on,1407,243,180,608
+interlocking_inconsistency,699,212,133,415
+junction,1909,214,149,424
+low_adhesion_overrun,699,164,51,545
+obstruction,1126,154,90,357
+occupied_entry,1097,141,89,326
+rear_end,1862,295,173,517
+safe_parallel,3136,0,0,0
+spad,1281,190,113,523
+stationary_train,1036,213,162,478

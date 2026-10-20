@@ -1,0 +1,4 @@
+The simulated encounter dataset in this folder is released under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+It contains no personal data and no data from any operational railway.

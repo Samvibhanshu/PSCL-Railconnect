@@ -1,0 +1,8 @@
+{
+  "title": "RailConflict-PSCL: code and simulated encounter dataset for physics-shielded conformal railway collision-risk assessment",
+  "upload_type": "software",
+  "creators": [{"name": "Pathak, Rakshit Ratan", "affiliation": "Vellore Institute of Technology, Vellore, India"}],
+  "license": "MIT",
+  "keywords": ["railway safety", "collision avoidance", "conformal prediction", "runtime assurance", "digital twin"],
+  "related_identifiers": [{"identifier": "https://github.com/RakshitRPathak/RailConflict-PSCL", "relation": "isSupplementTo", "scheme": "url"}]
+}

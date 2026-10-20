@@ -1,0 +1,130 @@
+{
+  "seeds": 10,
+  "n_per_seed": 24000,
+  "alphas": {
+    "1": 0.1,
+    "2": 0.05,
+    "3": 0.02
+  },
+  "canonical_dataset": "railconflict_encounters_seed2026_n24000.csv",
+  "canonical_class_counts": [
+    16207,
+    1765,
+    1245,
+    4783
+  ],
+  "data_check": {
+    "generated_sha256": "54103611c2750605bc7e86f6b89729ff220d930c19cca56a8b882b9ea87d341e"
+  },
+  "shield_proposition2_check": {
+    "n": 48000,
+    "n_assumptions_hold": 41272,
+    "under_when_hold": 0,
+    "n_violated": 6728,
+    "under_when_violated": 933
+  },
+  "latency_ms": {
+    "single_record_hgb": 9.51450467000086,
+    "batched_per_record_hgb": 0.01760021104161069,
+    "shield_per_record": 0.0021347539582923978
+  },
+  "protocol_a": {
+    "rf_accuracy_vs_index_labels": 0.9297916666666667,
+    "rf_macro_f1_vs_index_labels": 0.9049563446969096,
+    "index_label_accuracy_vs_physics": 0.536,
+    "index_label_kappa_vs_physics": 0.29031664890338416,
+    "index_label_critical_recall_vs_physics": 0.1280193236714976,
+    "index_class_counts": [
+      10821,
+      7493,
+      5096,
+      590
+    ],
+    "cm_index_vs_physics": [
+      [
+        10035,
+        5585,
+        601,
+        7
+      ],
+      [
+        238,
+        1448,
+        281,
+        0
+      ],
+      [
+        133,
+        320,
+        798,
+        0
+      ],
+      [
+        415,
+        140,
+        3416,
+        583
+      ]
+    ]
+  },
+  "cm_hgb_seed0": [
+    [
+      3003,
+      175,
+      27,
+      41
+    ],
+    [
+      25,
+      331,
+      35,
+      2
+    ],
+    [
+      3,
+      53,
+      178,
+      16
+    ],
+    [
+      8,
+      20,
+      62,
+      821
+    ]
+  ],
+  "cm_pscl_seed0": [
+    [
+      2680,
+      283,
+      72,
+      211
+    ],
+    [
+      3,
+      164,
+      147,
+      79
+    ],
+    [
+      1,
+      1,
+      77,
+      171
+    ],
+    [
+      0,
+      4,
+      1,
+      906
+    ]
+  ],
+  "environment": {
+    "python": "3.13.16",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.1",
+    "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39"
+  },
+  "runtime_s": 565.0
+}

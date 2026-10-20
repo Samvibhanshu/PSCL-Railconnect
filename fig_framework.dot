@@ -1,0 +1,25 @@
+digraph PSCL {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.18, ranksep=0.35, splines=spline, pad=0.1, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=9, color="#52514e", fillcolor="#f4f4f2", penwidth=0.8, margin="0.08,0.05"];
+  edge  [color="#52514e", arrowsize=0.6, penwidth=0.8];
+
+  sh -> cp [style=invis];
+  subgraph cluster_in { label="Observed state (degraded)"; fontsize=9; color="#c3c2b7"; style="rounded,dashed";
+    obs [label="Onboard + wayside data\nspeed, position (stale, noisy)\nsignal, authority, occupancy\npoint detection, weather\ncomm delay, reliability"];
+  }
+  twin [label="Graph digital twin\n(route table, NetworkX)\ntrack distance to\nconflict point", fillcolor="#e3eefb"];
+  phys [label="Nominal braking model\n(ETCS-style EBD)\nD_svc, D_emg, margin,\nTTC, DRCRI", fillcolor="#e3eefb"];
+  ml   [label="ML severity model\n(HGB, class-balanced)\np(k | x), k = 0..3", fillcolor="#e3eefb"];
+  cp   [label="Mondrian conformal\nescalation\nmax C_alpha(x)\nP(decision >= Y | Y=k) >= 1 - alpha_k", fillcolor="#fde3d8"];
+  sh   [label="Physics shield\nconservative envelope:\nmu lower bound, staleness,\nk*sigma position, multi-source", fillcolor="#fde3d8"];
+  fuse [label="Severity floor\nmax(conformal, shield)", shape=box, fillcolor="#fde3d8"];
+  act  [label="Graded intervention\n0 Advisory   1 Service brake\n2 Emergency brake\n3 Emergency + stop-all", fillcolor="#f4f4f2"];
+  log  [label="Event log &\ncontrolled recalibration", fillcolor="#f4f4f2"];
+
+  {rank=same; obs; twin; phys; ml;}
+  {rank=same; sh; cp; fuse; act; log;}
+  obs -> twin -> phys -> ml;
+  ml -> cp; cp -> fuse; sh -> fuse [constraint=false]; fuse -> act -> log;
+  twin -> sh; 
+  log -> cp [style=dashed, constraint=false, xlabel="recalibrate", fontsize=8, fontcolor="#52514e"];
+}

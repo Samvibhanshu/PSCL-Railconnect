@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite it as below."
+title: "RailConflict-PSCL: Physics-Shielded Conformal Learning for railway collision-risk assessment"
+version: 1.0.0
+date-released: 2026-10-15
+license: MIT
+repository-code: "https://github.com/RakshitRPathak/RailConflict-PSCL"
+doi: "10.5281/zenodo.XXXXXXX"
+authors:
+  - family-names: Pathak
+    given-names: Rakshit Ratan
+    affiliation: "Vellore Institute of Technology, Vellore, India"
+keywords: [railway safety, collision avoidance, conformal prediction, runtime assurance, physics-informed machine learning]
+preferred-citation:
+  type: article
+  title: "Physics-Shielded Conformal Learning for Network-Aware Railway Collision-Risk Assessment Under Degraded Observations"
+  authors:
+    - family-names: Pathak
+      given-names: Rakshit Ratan
+  journal: "IEEE Access"
+  year: 2026
+  status: submitted
